@@ -5,6 +5,10 @@ Set up Google Cloud Instnace
 	Allow HTTPS
 	Everything else - default
 
+Setup firewall
+tcp:3838
+tcp:8787 - if you do rstduio as well
+
 After initalization, go to SSH dropdown and get *gcloud command line* 
 
 Using GoogleCloudSDK:
