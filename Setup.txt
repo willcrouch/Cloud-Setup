@@ -33,3 +33,8 @@ At this point should have notice that server is running
 
 To check:
 sudo systemctl status shiny-server.service
+
+Then call R
+call shiny
+Then call the app from GitHub
+runGitHub("repository name","account name")
