@@ -39,4 +39,4 @@ Then call R
 call shiny
 	library(shiny)
 Then call the app from GitHub
-	runGitHub("repository name","account name")
+	runGitHub("repository name","account name", launch.browser = FALSE)
