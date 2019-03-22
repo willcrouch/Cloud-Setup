@@ -40,3 +40,10 @@ call shiny
 	library(shiny)
 Then call the app from GitHub
 	runGitHub("repository name","account name", launch.browser = FALSE)
+
+Restart Shiny Server
+	sudo restart shiny-server
+Stop Shiny Server
+	sudo stop shiny-server
+Start Shiny Server
+	sudo start shiny-server
