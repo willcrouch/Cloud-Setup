@@ -38,9 +38,14 @@ At this point should have notice that server is running
 To check:
 sudo systemctl status shiny-server.service
 
+Run the following piece to get edit permissions
+$ sudo chmod 777 -R /srv/shiny-server/
 
 Get WinSCP
   Use google_compute_engine.ppk in .ssh under advanced
   Use username for google in username
     -- If you need to find user name it is in MetaData under VM Machines
   Leave password blank
+  
+Add directory to srv/shiny-server
+Add app(s)
