@@ -38,16 +38,9 @@ At this point should have notice that server is running
 To check:
 sudo systemctl status shiny-server.service
 
-Then call R
-	$ R
-call shiny
-	library(shiny)
-Then call the app from GitHub
-	runGitHub("repository name","account name", launch.browser = FALSE)
 
-Restart Shiny Server
-	sudo restart shiny-server
-Stop Shiny Server
-	sudo stop shiny-server
-Start Shiny Server
-	sudo start shiny-server
+Get WinSCP
+  Use google_compute_engine.ppk in .ssh under advanced
+  Use username for google in username
+    -- If you need to find user name it is in MetaData under VM Machines
+  Leave password blank
