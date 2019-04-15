@@ -49,3 +49,7 @@ Get WinSCP
   
 Add directory to srv/shiny-server
 Add app(s)
+
+
+***If using proxies or other constraints on traffic:
+Package Manager listens HTTP on 4242 by default and HTTPS on 1024
