@@ -41,6 +41,29 @@ sudo systemctl status shiny-server.service
 Run the following piece to get edit permissions
 $ sudo chmod 777 -R /srv/shiny-server/
 
+Setup for remote connections - ODBC & HTTR  -- https://cran.r-project.org/web/packages/odbc/readme/README.html
+
+DBC - inital driver
+$ sudo apt-get install unixodbc unixodbc-dev
+Common
+# SQL Server ODBC Drivers (Free TDS)
+$ apt-get install tdsodbc
+# PostgreSQL ODBC ODBC Drivers
+$ apt-get install odbc-postgresql
+# MySQL ODBC Drivers
+$ apt-get install libmyodbc
+# SQLite ODBC Drivers
+$ apt-get install libsqliteodbc
+
+Find latest curl
+$ apt-cache search libcurl
+Current Load
+$ sudo apt-get install libcurl4-openssl-dev
+Find OpenSSL to get
+$ apt-cache search libssl | grep SSL
+Current Load
+$ sudo apt-get install r-cran-openssl
+
 Get WinSCP
   Use google_compute_engine.ppk in .ssh under advanced
   Use username for google in username
@@ -49,7 +72,3 @@ Get WinSCP
   
 Add directory to srv/shiny-server
 Add app(s)
-
-
-***If using proxies or other constraints on traffic:
-Package Manager listens HTTP on 4242 by default and HTTPS on 1024
