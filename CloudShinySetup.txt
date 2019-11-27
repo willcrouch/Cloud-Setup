@@ -36,9 +36,10 @@ Get WinSCP
 Add directory to srv/shiny-server
 Add app(s)
 
+#Error Logs
+/var/log/shiny-server/
 
-Useful Commands Checks
-
+#Useful Commands Checks
 sudo systemctl start shiny-server
 sudo systemctl stop shiny-server
 sudo systemctl restart shiny-server
