@@ -23,12 +23,15 @@ sudo certbot --nginx
 sudo certbot renew --dry-run
 
 #setup nginx
-sudo ufw app list
+sudo ufw allow OpenSSH
 sudo ufw allow 'Nginx Full'
 sudo ufw allow 3838
-sudo ufw allow 22
 sudo ufw enable
 sudo ufw status
+
+#sudo ufw app list
+#sudo ufw disable
+#sudo ufw reset
 
 ###Check status / restart
 sudo systemctl start nginx 
