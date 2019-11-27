@@ -23,6 +23,7 @@ sudo certbot --nginx
 sudo certbot renew --dry-run
 
 #setup nginx
+sudo ufw app list
 sudo ufw allow 'Nginx Full'
 sudo ufw allow 3838
 sudo ufw allow 22
