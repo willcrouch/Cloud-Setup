@@ -1,5 +1,4 @@
-# To restart if you need to (config files and all):
-# sudo apt-get purge nginx nginx-common
+
 sudo apt-get update
 sudo apt-get install nginx
 
@@ -95,3 +94,6 @@ sudo nginx -t
 #Confirm no errors
 
 sudo systemctl restart nginx
+
+# To restart if you need to (config files and all):
+# sudo apt-get purge nginx nginx-common
