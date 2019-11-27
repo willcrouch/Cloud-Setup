@@ -62,7 +62,10 @@ testtwo.willcrouch.com:3838
 #Review Certs
 sudo certbot certificates
 
-
+# You can do the following steps in WinSCP
+sudo chmod 777 /etc/nginx/
+sudo chmod 777 /etc/nginx/sites-available/
+# modify the nginx.conf in /etc/nginx/ and add a file "sub.sitename.com" to /etc/nginx/sites-available/
 
 sudo nano /etc/nginx/nginx.conf
 # in HTTP
