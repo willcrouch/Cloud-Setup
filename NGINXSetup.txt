@@ -2,6 +2,18 @@
 sudo apt-get update
 sudo apt-get install nginx
 
+# Install R
+sudo apt-get install r-base
+
+# Install Shiny & Shiny Server
+sudo su - \-c "R -e \"install.packages('shiny', repos='https://cran.rstudio.com/')\""
+### For Latest versions: https://www.rstudio.com/products/shiny/download-server/
+sudo apt-get install gdebi-core
+wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.12.933-amd64.deb
+sudo gdebi shiny-server-1.5.12.933-amd64.deb
+
+#test that ip:3838 shows shiny server and ip shows nginx
+
 #Get Certification -- used Certbot
 https://certbot.eff.org/
 sudo apt-get update
@@ -29,31 +41,28 @@ sudo ufw allow 3838
 sudo ufw enable
 sudo ufw status
 
+#restart nginx to start
+sudo systemctl restart nginx
+
+#If needed commands
 #sudo ufw app list
 #sudo ufw disable
 #sudo ufw reset
 
 ###Check status / restart
-sudo systemctl start nginx 
-sudo systemctl stop nginx 
-sudo systemctl restart nginx
-sudo systemctl status nginx
+# sudo systemctl start nginx 
+# sudo systemctl stop nginx 
+# sudo systemctl restart nginx
+# sudo systemctl status nginx
 
 #Test Point
-test.willcrouch.com should redirect to ngnix
+testtwo.willcrouch.com should redirect to ngnix
+testtwo.willcrouch.com:3838
 
 #Review Certs
 sudo certbot certificates
 
-# Install R
-sudo apt-get install r-base
 
-# Install Shiny & Shiny Server
-sudo su - \-c "R -e \"install.packages('shiny', repos='https://cran.rstudio.com/')\""
-### For Latest versions: https://www.rstudio.com/products/shiny/download-server/
-sudo apt-get install gdebi-core
-wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.12.933-amd64.deb
-sudo gdebi shiny-server-1.5.12.933-amd64.deb
 
 sudo nano /etc/nginx/nginx.conf
 # in HTTP
@@ -63,19 +72,19 @@ sudo nano /etc/nginx/nginx.conf
         '' close;
     }
    
-sudo nano /etc/nginx/sites-available/test.willcrouch.com
+sudo nano /etc/nginx/sites-available/testtwo.willcrouch.com
 server {
    listen 80 default_server;
    listen [::]:80 default_server ipv6only=on;
-   server_name test.willcrouch.com;
+   server_name testtwo.willcrouch.com;
    return 301 https://$server_name$request_uri;
 }
 server {
    listen 443 ssl;
-   server_name test.willcrouch.com;
+   server_name testtwo.willcrouch.com;
    
-   ssl_certificate /etc/letsencrypt/live/test.willcrouch.com/fullchain.pem;
-   ssl_certificate_key /etc/letsencrypt/live/test.willcrouch.com/privkey.pem;
+   ssl_certificate /etc/letsencrypt/live/testtwo.willcrouch.com/fullchain.pem;
+   ssl_certificate_key /etc/letsencrypt/live/testtwo.willcrouch.com/privkey.pem;
    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
    ssl_prefer_server_ciphers on;
    ssl_ciphers AES256+EECDH:AES256+EDH:!aNULL;
@@ -90,7 +99,7 @@ server {
    }
 }
 
-sudo ln -s /etc/nginx/sites-available/test.willcrouch.com /etc/nginx/sites-enabled/test.willcrouch.com
+sudo ln -s /etc/nginx/sites-available/testtwo.willcrouch.com /etc/nginx/sites-enabled/testtwo.willcrouch.com
 
 sudo rm -f /etc/nginx/sites-enabled/default
 
