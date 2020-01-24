@@ -1,46 +1,46 @@
-# This begins after the server is running and you have configured the reverse proxy with nginx
-#this sets up odbc & curl for apps like DBI and Plotly
+This begins after the server is running and you have configured the reverse proxy with nginx this sets up odbc & curl for apps like DBI and Plotly
 
-Run the following piece to get edit permissions
+The following set open permissions to the folder stated
 $ sudo chmod 777 -R /srv/shiny-server/
 
 Setup for remote connections - ODBC & HTTR  -- https://cran.r-project.org/web/packages/odbc/readme/README.html
 
 DBC - inital driver
 $ sudo apt-get install unixodbc unixodbc-dev
-Common
-# SQL Server ODBC Drivers (Free TDS)
+Common options:
+- SQL Server ODBC Drivers (Free TDS)
 $ apt-get install tdsodbc
-# PostgreSQL ODBC ODBC Drivers
+- PostgreSQL ODBC ODBC Drivers
 $ apt-get install odbc-postgresql
-# MySQL ODBC Drivers
+- MySQL ODBC Drivers
 $ apt-get install libmyodbc
-# SQLite ODBC Drivers
+- SQLite ODBC Drivers
 $ apt-get install libsqliteodbc
 
 Find latest curl
 $ apt-cache search libcurl
-Current Load
+Current Load for curl
 $ sudo apt-get install libcurl4-openssl-dev
+
 Find OpenSSL to get
 $ apt-cache search libssl | grep SSL
-Current Load
+Current Load for SSL
 $ sudo apt-get install r-cran-openssl
 
 Get WinSCP
   Use google_compute_engine.ppk in .ssh under advanced
   Use username for google in username
     -- If you need to find user name it is in MetaData under VM Machines
-  Leave password blank
   
 Add directory to srv/shiny-server
-Add app(s)
+Example: srv/shiny-server/NCAA will create: yourwebsite.com/NCAA
+Add app and supporting files to folder
 
 #Error Logs
 /var/log/shiny-server/
 
 #Useful Commands Checks
-sudo systemctl start shiny-server
-sudo systemctl stop shiny-server
-sudo systemctl restart shiny-server
-sudo systemctl status shiny-server
+$ sudo systemctl start shiny-server
+$ sudo systemctl stop shiny-server
+$ sudo systemctl restart shiny-server
+$ sudo systemctl status shiny-server
