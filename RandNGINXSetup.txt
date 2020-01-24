@@ -1,28 +1,36 @@
+Addition Notes for Shiny Server: https://docs.rstudio.com/shiny-server/1.4.4/index.pdf
 
-sudo apt-get update
-sudo apt-get install nginx
+Open your SSH command window / putty window, etc after creating a google VM box
+https://cloud.google.com/compute/docs/quickstart-linux
+Selected latest Ubuntu (19.10)
 
-# Install R
-sudo apt-get install r-base
+First steps:
+$ sudo apt-get update
+$ sudo apt-get install nginx
 
-# Install Shiny & Shiny Server
-sudo su - \-c "R -e \"install.packages('shiny', repos='https://cran.rstudio.com/')\""
-### For Latest versions: https://www.rstudio.com/products/shiny/download-server/
-sudo apt-get install gdebi-core
-wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.12.933-amd64.deb
-sudo gdebi shiny-server-1.5.12.933-amd64.deb
+Install R:
+$ sudo apt-get install r-base
 
-#test that ip:3838 shows shiny server and ip shows nginx
+Install Shiny & Shiny Server
+$ sudo su - \-c "R -e \"install.packages('shiny', repos='https://cran.rstudio.com/')\""
+    For Latest versions: https://www.rstudio.com/products/shiny/download-server/
+$ sudo apt-get install gdebi-core
+$ wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.12.933-amd64.deb
+    Check https://rstudio.com/products/shiny/download-server/ for the latest versions
+$ sudo gdebi shiny-server-1.5.12.933-amd64.deb
 
-#Get Certification -- used Certbot
-https://certbot.eff.org/
-sudo apt-get update
-sudo apt-get install software-properties-common
-sudo add-apt-repository universe
-sudo add-apt-repository ppa:certbot/certbot
+Test that ip:3838 shows shiny server and ip shows nginx
+    Shiny server splash screen https://imgur.com/1s4SAJ4
 
-sudo apt-get install certbot python-certbot-nginx
-sudo certbot --nginx
+Get Certification -- used Certbot
+    https://certbot.eff.org/
+$ sudo apt-get update
+$ sudo apt-get install software-properties-common
+$ sudo add-apt-repository universe
+$ sudo add-apt-repository ppa:certbot/certbot
+
+$ sudo apt-get install certbot python-certbot-nginx
+$ sudo certbot --nginx
     Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access.
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     1: No redirect - Make no further changes to the webserver configuration.
@@ -31,41 +39,40 @@ sudo certbot --nginx
     change by editing your web server's configuration.
    #Chose Redirect (2) 
 
-#Check
-sudo certbot renew --dry-run
+Check that it is running correctly
+$ sudo certbot renew --dry-run
 
-#setup nginx
-sudo ufw allow OpenSSH
-sudo ufw allow 'Nginx Full'
-sudo ufw allow 3838
-sudo ufw enable
-sudo ufw status
+Setup nginx
+$ sudo ufw allow OpenSSH
+$ sudo ufw allow 'Nginx Full'
+$ sudo ufw allow 3838
+$ sudo ufw enable
+$ sudo ufw status
 
-#restart nginx to start
-sudo systemctl restart nginx
+Restart nginx to start
+$ sudo systemctl restart nginx
 
-#If needed commands
-#sudo ufw app list
-#sudo ufw disable
-#sudo ufw reset
+As needed commands
+$ sudo ufw app list
+$ sudo ufw disable
+$ sudo ufw reset
 
-###Check status / restart
+Check status / restart
 # sudo systemctl start nginx 
 # sudo systemctl stop nginx 
 # sudo systemctl restart nginx
 # sudo systemctl status nginx
 
-#Test Point
-testtwo.willcrouch.com should redirect to ngnix
-testtwo.willcrouch.com:3838
+Test redirect
+subdomain.yourwebsite.com should redirect to ngnix -> subdomain.yourwebsite.com:3838
 
 #Review Certs
-sudo certbot certificates
+$ sudo certbot certificates
 
 # You can do the following steps in WinSCP
-sudo chmod 777 /etc/nginx/
-sudo chmod 777 /etc/nginx/sites-available/
-# modify the nginx.conf in /etc/nginx/ and add a file "sub.sitename.com" to /etc/nginx/sites-available/
+$ sudo chmod 777 /etc/nginx/
+$ sudo chmod 777 /etc/nginx/sites-available/
+# modify the nginx.conf in /etc/nginx/ and add a file "subdomain.yourwebsite.com" to /etc/nginx/sites-available/
 
 sudo nano /etc/nginx/nginx.conf
 # in HTTP
@@ -103,16 +110,14 @@ server {
 }
 
 #Confirm no error
-sudo nginx -t
-
-sudo ln -s /etc/nginx/sites-available/<yoursite>.com /etc/nginx/sites-enabled/<yoursite>.com
-
-sudo rm -f /etc/nginx/sites-enabled/default
+$ sudo nginx -t
+$ sudo ln -s /etc/nginx/sites-available/<yoursite>.com /etc/nginx/sites-enabled/<yoursite>.com
+$ sudo rm -f /etc/nginx/sites-enabled/default
 
 #Confirm no errors
-sudo nginx -t
+$ sudo nginx -t
 
-sudo systemctl restart nginx
+$ sudo systemctl restart nginx
 
 # To restart if you need to (config files and all):
-# sudo apt-get purge nginx nginx-common
+$ sudo apt-get purge nginx nginx-common
