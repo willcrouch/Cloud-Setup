@@ -1,7 +1,7 @@
-# Cloud-Setup
-Setup for Google Cloud with Shiny Server and a reverse proxy.
+# Google Cloud Shiny Server Setup
+Setup for Google Cloud VM instance with Shiny Server and a reverse proxy for your personal website.
 
-I wanted to build my own shiny server, and it began a much larger process than I expected.
+Basically, I wanted to build my own shiny server, and it became a much larger process than I expected.
 
 Issues I ran into and solved:
 1. Setting up a Shiny server on Google Cloud and not AWS, which was what I found for most walkthroughs
