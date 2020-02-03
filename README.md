@@ -13,7 +13,7 @@ Basically, I wanted to build my own shiny server, and it became a much larger pr
 2. Shiny Server NGINX Setup
 3. Shiny Setup
 
-## I have also added a call for packages that I frequently use: </br>
+## Call for packages that I frequently use: </br>
 <a href= https://github.com/willcrouch/RPackageList>R Packages</a>
 
 ## Helpful Links
