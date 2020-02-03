@@ -1,0 +1,21 @@
+# Setting up a project with Google Cloud Platform
+- I set this up with Google's console, and then using command to set up Shiny Server and NGINX.
+- This also assumes it is a personal project and not enterprise.
+
+<i>If you already have a GCP started, jumped to launching the compute engine.</i>
+
+### First Steps
+1. Go to Google Cloud, and click get started for free in the top right
+2. Select country and agree to ToS
+3. Set up account information
+
+### Launching Compute Engine
+1. Go to Compute Engine
+2. Go to VM Instance
+3. Select Create Instance
+  a. Name your instance
+  b. Set region
+  c. Depending on needs, I have selected a standard N1 instance, which runs me between $12-$15 per month for a dedicated vm
+  d. Set boot to Ubuntu 19.10
+  e. Set to allow HTTP & HTTPS traffic
+4. Wait for your instance to initialize (~10 secs)
