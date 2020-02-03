@@ -9,8 +9,14 @@ Issues I ran into and solved:
 3. Getting Shiny to run through a reverse proxy since the native shiny server is only http and required a :3838
 
 Order of files:
-1. GoogleCloudandNGINX.txt
-2. ShinySetup.txt
+1. Google Cloud Setup
+2. Shiny Server NGINX Setup
+3. Shiny Setup
 
 I have also added a packages list of what I use frequently: </br>
 <a href= https://github.com/willcrouch/RPackageList>R Packages</a>
+
+## Helpful Links
+<a href=https://docs.rstudio.com/shiny-server/1.4.4/index.pdf>Shiny Server Admin Guide</a>
+<a href=https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/>NGIX Reverse Proxy Guide </a>
+<a href=https://shiny.rstudio.com/>Shiny</a>
