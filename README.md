@@ -12,6 +12,7 @@ Basically, I wanted to build my own shiny server, and it became a much larger pr
 1. Google Cloud Setup
 2. Shiny Server NGINX Setup
 3. Shiny Setup
+4. Additional Setup
 
 ## Call for packages that I frequently use: </br>
 <a href= https://github.com/willcrouch/RPackageList>R Packages</a>
