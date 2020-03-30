@@ -1,0 +1,10 @@
+This is additional work I have found necessary when debugging new shiny apps that have failed to work:
+
+This work was for an app that used tidycensus & sf in conjunction with leaflet
+- First issue came from units
+$ sudo apt-get update -y
+$ sudo apt-get install -y libudunits2-dev
+
+- Second issue came with rgdal
+$ sudo apt install libgdal-dev
+
